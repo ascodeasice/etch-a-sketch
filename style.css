@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#gridContainer {
+    box-sizing: border-box;
+    border: black solid 2px;
+}
+
+.grid {
+    box-sizing: border-box;
+    border: black solid 1px;
+}
+
+#btnContainer {
+    width: 550px;
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    width: 110px;
+    height: 25px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: royalblue;
+    color: white;
+}
