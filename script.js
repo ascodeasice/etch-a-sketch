@@ -1,5 +1,6 @@
 const gridContainer = document.querySelector("#gridContainer");
 const resetBtn = document.querySelector("#resetBtn");
+const resizeBtn = document.querySelector("#resizeBtn");
 const GradientBtn = document.querySelector("#gradientModeBtn");
 const blackBtn = document.querySelector("#blackModeBtn");
 const pxPerSide = 550;
@@ -26,6 +27,7 @@ function addHoverListener() {
 
     allGrids.forEach(grid =>
         grid.addEventListener("mouseover", function (e) {
+            if (e.which == 1) return;
             if (GradientMode) {
                 currentRgb = grid.style.backgroundColor.match(/\d+/);
                 if (currentRgb >= 25.6) {
@@ -45,7 +47,7 @@ function askForGridNum() {
         isNaN(input) ||
         input.length <= 0 ||
         parseInt(input) > 100 ||
-        parseInt <= 0
+        parseInt(input) <= 0
     );
     return parseInt(input);
 }
@@ -55,6 +57,14 @@ function getPx(gridNum) {
 }
 
 resetBtn.addEventListener("click", function (e) {
+    let allGrids = document.querySelectorAll(".grid");
+
+    allGrids.forEach(grid => {
+        grid.style.backgroundColor = "rgb(256,256,256)";
+    });
+});
+
+resizeBtn.addEventListener("click", function (e) {
     gridContainer.textContent = "";
     let gridNum = askForGridNum();
     let len = getPx(gridNum);
